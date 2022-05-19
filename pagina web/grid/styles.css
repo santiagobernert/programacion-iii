@@ -1,0 +1,185 @@
+html {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+nav {
+  grid-row-start: 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
+}
+
+main {
+  grid-row-start: 2;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+}
+.principal {
+  grid-row-start: 1;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  padding: 5rem;
+}
+
+.aside-container {
+  display: flex;
+  align-content: center;
+  min-height: 40%;
+}
+
+aside {
+  grid-column: 2;
+  position: sticky;
+  top: 80px;
+  text-align: center;
+  border: solid 2px #000;
+  border-radius: 7px;
+  min-width: 200px;
+  width: min-content;
+  height: min-content;
+  margin: 10px;
+  margin-left: 10px;
+  background-color: #30455e;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+footer {
+  background-color: #3b3b3b;
+  color: #eee;
+  padding: 2rem;
+  grid-row-start: 3;
+  text-align: center;
+}
+
+.barra-navegacion {
+  display: inline-flex;
+  width: 100%;
+  background-color: #3b3b3b;
+  color: #ffff;
+  padding: 1rem 0rem;
+  align-items: center;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+.barra-navegacion a {
+  text-decoration: none;
+  color: #eee;
+}
+.marca {
+  display: inline-flex;
+  justify-content: space-between;
+  padding-inline-start: 0.5rem;
+}
+.marca * {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+  margin-block: 0;
+  margin-inline: 0.5rem;
+}
+.secciones {
+  margin-left: auto;
+  float: inline-end;
+  padding-right: 3rem;
+}
+.nav-ul {
+  justify-content: space-evenly;
+  display: inline-flex;
+  list-style-type: none;
+  margin-block: 0;
+}
+.item {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  text-decoration: none;
+}
+.item :hover {
+  color: #eee;
+}
+
+.div-pais {
+  display: inline-grid;
+  width: min-content;
+}
+
+.img-pais {
+  max-width: 18rem;
+}
+
+.banderas {
+  width: 60rem;
+  display: grid;
+  grid-template-rows: 15rem 15rem 15rem 15rem;
+  grid-template-columns: 15rem 15rem 15rem 15rem;
+  justify-items: center;
+  align-items: center;
+}
+
+#alemania {
+  grid-row: 1;
+  grid-column: 1 / 2;
+  width: 30rem;
+  height: 10rem;
+}
+#argentina {
+  grid-row: 1;
+  grid-column: 2 / span 4;
+  width: 12rem;
+  height: 10rem;
+}
+#colombia {
+  grid-row: 2;
+  grid-column: 1 / 2;
+  width: 30rem;
+  height: 10rem;
+}
+#españa {
+  grid-row: 1;
+  grid-column: 1/2;
+  width: 10rem;
+  height: 30rem;
+}
+#Inglaterra {
+  grid-row: 2/3;
+  width: 15rem;
+  height: auto;
+}
+#italia {
+  grid-row: 2 / span 4;
+  grid-column: 2/3;
+  width: 15rem;
+  height: 21rem;
+}
+#nuevaZelanda {
+  grid-row: 3/4;
+  width: 15rem;
+  height: 9rem;
+}
+#peru {
+  grid-row: 3;
+  grid-column: 1;
+  width: 12rem;
+  height: 9rem;
+}
+
+.equipos {
+  margin-bottom: 0;
+}
+.fecha {
+  font-size: 0.7em;
+  font-weight: 200;
+  margin-top: 0;
+}
