@@ -114,14 +114,14 @@ function ejercicio7() {
 function ejercicio8() {
     let array = []
     for (i=0; i<6; i++){
-        let num1 = +prompt("ingrese un numero del 1 al 10: ");
+        let num1 = +prompt("ingrese un numero: ");
         while (isNaN(num1)) {
             num1 = +prompt("escriba un NUMERO");
         }
         array.push(num1);
     }
-    let min = 11;
-    let max = 0;
+    let min = 999999999;
+    let max = -99999999;
 
     for (i of array){
         if (i < min){
@@ -129,29 +129,96 @@ function ejercicio8() {
             console.log(i);
         }
         if (i > max){
-            min = i;
+            max = i;
             console.log(i);
         }
     }
-    alert('El mayor es: '.concat(max, 'el menor es: ', min))
+    alert('En el arreglo: '.concat(array, ' el mayor es: ', max, ' y el menor es: ', min))
 }
 function ejercicio9() {
-    return
+    let array = []
+    for (i=0; i<6; i++){
+        let num1 = +prompt("ingrese un numero: ");
+        while (isNaN(num1)) {
+            num1 = +prompt("escriba un NUMERO");
+        }
+        array.push(num1);
+    }
+    alert("["+array+"]")
+    for (i of array){
+        alert(i)
+    }
+}
+function merge(array1, array2) {
+    let array = [];
+    while (array1.lenght && array2.length) {
+        if (array1[0] < array2[0]) {
+            array.push(array1.shift())
+            console.log(array1.shift())
+        } else {
+            array.push(array2.shift())
+            console.log(array2.shift())
+        }
+    }
+    return [...array, ...array1, ...array2]
+}
+function mergeSort(array) {
+    if (array.length < 2) {
+        return array
+    }
+    let mid = Number((array.length)/2);
+    let array1 = mergeSort(array.slice(0, mid));
+    let array2 = mergeSort(array.slice(mid));
+    console.log(array1, array2);
+    return merge(mergeSort(array1), mergeSort(array2))
 }
 function ejercicio10() {
-    return
+    let array = []
+    for (i=0; i<6; i++){
+        let num1 = +prompt("ingrese un numero: ");
+        while (isNaN(num1)) {
+            num1 = +prompt("escriba un NUMERO");
+        }
+        array.push(num1);
+    }
+    alert(mergeSort(array))
 }
 function ejercicio11() {
-    return
+    
 }
 function ejercicio12() {
-    return
+    let array = []
+    for (i=0; i<6; i++){
+        let num1 = +prompt("ingrese un numero: ");
+        while (isNaN(num1)) {
+            num1 = +prompt("escriba un NUMERO");
+        }
+        array.push(num1);
+    }
+    alert("El array tiene "+array.length+" elementos")
 }
 function ejercicio13() {
-    return
+    let array = []
+    for (i=0; i<6; i++){
+        let num1 = +prompt("ingrese un numero: ");
+        while (isNaN(num1)) {
+            num1 = +prompt("escriba un NUMERO");
+        }
+        array.push(num1);
+    }
+    let busqueda = +prompt("ingrese un numero a buscar en el array: ");
+    while (isNaN(busqueda)) {
+        busqueda = +prompt("escriba un NUMERO");
+    }
+    if (array.includes(busqueda)){
+        alert('el numero se encuentra en el '.concat((array.indexOf(busqueda)+1), ' lugar'))
+    }else{
+        alert('el numero no se encuentra en el array')
+    }
 }
 function ejercicio14() {
-    return
+    let awasasa = "AWSAWDWAWSWA"
+    
 }
 function ejercicio15() {
     return
