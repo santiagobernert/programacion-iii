@@ -162,15 +162,49 @@ function merge(array1, array2) {
     }
     return [...array, ...array1, ...array2]
 }
-function mergeSort(array) {
-    if (array.length < 2) {
+function mergeSort(array){
+    console.log(array)
+    if (array.length == 1){
         return array
     }
     let mid = Number((array.length)/2);
-    let array1 = mergeSort(array.slice(0, mid));
-    let array2 = mergeSort(array.slice(mid));
-    console.log(array1, array2);
-    return merge(mergeSort(array1), mergeSort(array2))
+    let a1 = array.slice(0, mid);
+    console.log('a1', a1);
+    let a2 = array.slice(mid);
+    console.log('a2 ', a2);
+    let x = mergeSort(a1);
+    console.log('x ', x);
+    let y = mergeSort(a2);
+    console.log('y ', y);
+    var a = [];
+
+    while (a.lenth < array.length){
+        try{
+            if (x.lenght > 0){
+                if (x[0] < y[0]){
+                    a.push(x.shift());
+                    console.log('x mas chico', x[0])}
+                else{
+                    a.push(y.shift());
+                }}
+            else{
+                a.push(y.shift());
+            }
+        }
+        catch{
+            if( y.length > 0){
+                if (x[0] < y[0]){
+                    a.push(x.shift());
+                    console.log('x mas chico', x[0])}
+                else{
+                    a.push(y.shift());
+                }}
+            else{ 
+                a.push(x.shift());
+            }}
+        }
+    console.log('arrayfinal', a);
+    return a;
 }
 function ejercicio10() {
     let array = []
@@ -181,7 +215,8 @@ function ejercicio10() {
         }
         array.push(num1);
     }
-    alert(mergeSort(array))
+    array = mergeSort(array)
+    alert(array)
 }
 function ejercicio11() {
     
@@ -217,9 +252,14 @@ function ejercicio13() {
     }
 }
 function ejercicio14() {
-    let awasasa = "AWSAWDWAWSWA"
+    let awasasa = "AWSAWDWAWSWA";
+    awasasa = awasasa.replaceAll('AWS', '');
+    alert(awasasa)
     
 }
 function ejercicio15() {
-    return
+    let awasasa = "AWSAWDWAWSWA";
+    awasasa = awasasa.split("").reverse().join("");
+    awasasa = awasasa.replaceAll('AWS', '');
+    alert(awasasa)
 }
