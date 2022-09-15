@@ -84,12 +84,13 @@ function punto2() {
 // 3) Ordenar de mayor a menor los setUps en funcion de su capacidad de almacenamiento o "storage".
 
 function punto3() {
+  console.log("punto 3");
   let h1 = document.getElementById("3");
   const sorted = setUps.sort(
     (firstSetup, secondSetup) => firstSetup.storage - secondSetup.storage
   );
-  console.log(sorted.forEach((e) => e.processor.concat(e.price, e.storage)));
-  h1.innerHTML = sorted.forEach((e) => e.price);
+  sorted.forEach((e) => console.log( e.processor.concat(' storage: ', e.storage)));
+  h1.innerHTML = 'En la consola';
 }
 
 // 4) Mostrar por consola solo el valor de la frecuencia de "monitor" de todos los setUps.
@@ -123,4 +124,25 @@ function punto6() {
 
 // 7) Agregar una nueva propiedad a todos los setUps definida como: "stock: 10".
 
+function punto7(){
+  console.log("Punto 7");
+  let h1 = document.getElementById("7");
+  setUps.map(e => e.stock = 10);
+  setUps.forEach(e=> console.log( "stock del setup", setUps.indexOf(e)+1,": ", e.stock));
+  h1.innerHTML = "En consola";
+}
+
 // 8) Filtrar los nuevos setUps del punto 7 cuyo precio sea mayor que 1500 y restar en 2 unidades el stock del setUp cuya gpu sea "RTX 3070 Ti".
+
+function punto8(){
+  console.log("Punto 8");
+  let h1 = document.getElementById("8");
+  setUps.map(e => e.stock = 10);
+  const filtered = setUps.filter(e => e.price > 1500);
+  const rtx = setUps.find(e => e.gpu == 'RTX 3070 Ti');
+  rtx.stock = rtx.stock - 2;
+  setUps.forEach(e=> console.log( "stock del setup", e.processor, e.gpu,": ", e.stock));
+  console.log('setups con precio mayor a 1500');
+  filtered.forEach(e => console.log(e));
+  h1.innerHTML = "En consola";
+}
