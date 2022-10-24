@@ -1,0 +1,24 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Lampazo",
+            "precio": 230
+        },
+        {
+            "id": 2,
+            "nombre": "Escoba",
+            "precio": 330
+        },
+        {
+            "id": 3,
+            "nombre": "Trapo",
+            "precio": 90
+        },
+        {
+            "id": 4,
+            "nombre": "Cif",
+            "precio": 150
+        }
+    ]
+}
