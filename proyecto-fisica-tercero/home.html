@@ -6,8 +6,15 @@
     <title>Calculadora</title>
     <link rel="shortcut icon" href="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-calculator-icon-png-image_319810.jpg" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
   </head>
+  <py-env>
+    paths:
+        ./script.py
+    </py-env>
   <body>
+    <py-script id="main" src="./script.py"></py-script>
     <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
@@ -28,10 +35,10 @@
             <a class="nav-link" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="calcular">Calcular</a>
+            <a class="nav-link" href="#calcular">Calcular</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="instrucciones">Instrucciones</a>
+            <a class="nav-link" href="#instrucciones">Instrucciones</a>
           </li>
         </ul>
       </div>
@@ -41,10 +48,13 @@
 <div class="p-5 text-center bg-light">
   <h1 class="mb-3 mt-5">Calculadora de aceleración</h1>
   <h4 class="mb-3">Aceleración constante</h4>
-  <a class="btn btn-primary mb-5" href="" role="button">Calcular</a>
+  <a class="btn btn-primary mb-5" href="#calcular" role="button">Calcular</a>
 </div>
-<div id="instrucciones" class="container justify-content-center my-4">
-  <h4 class="text-center">Instrucciones para calcular</h4>
+<div class="container text-center py-5">
+  <img src="https://www.fisicaenlinea.com/04cinematica/images/aceleracion01.jpg" alt="aceleracion">
+</div>
+<div id="instrucciones" class="container justify-content-center my-4 w-50  text-center">
+  <h3 class="text-center mb-3">Instrucciones para calcular</h3>
   <ul class="list-group">
   <li class="list-group-item">Ingresar la cantidad de etapas</li>
   <li class="list-group-item">Si se conoce la aceleración, ingresarla</li>
@@ -53,9 +63,97 @@
   <li class="list-group-item">De no saber el tiempo, ingresar la velocidad final</li>
 </ul>
 </div>
-<div class="container text-center py-5">
-  <img src="https://www.fisicaenlinea.com/04cinematica/images/aceleracion01.jpg" alt="aceleracion">
-</div>
+<div id="calcular" class="calcular container w-75 p-5 justify-content-center">
+  <h3 class="text-center mb-3">Calcular</h3>
+    <form action="">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto text-center justify-content-center">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label text-center">Número de etapas</label>
+            <input type="number" class="form-control w-75 ms-auto me-auto" id="etapas" placeholder="Ej: 3">
+          </div>
+        </div>
+        <div class="col-md-auto text-center justify-content-center">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label text-center">Tiempo</label>
+            <input type="number" class="form-control w-75 ms-auto me-auto" id="tiempo" placeholder="Ej: 27">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">¿Conoce la aceleración?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="aceleracion-no">
+              <label class="form-check-label" for="aceleracion-no" >
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="aceleracion-si" checked>
+              <label class="form-check-label" for="aceleracion-si">
+                Si
+              </label>
+            </div>
+            <input type="email" class="form-control" id="aceleracion" placeholder="Ej: 10">
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">¿Conoce la velocidad inicial?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-inicial-no">
+              <label class="form-check-label" for="velocidad-inicial-no">
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-inicial-si" checked>
+              <label class="form-check-label" for="velocidad-inicial-si">
+                Si
+              </label>
+            </div>
+            <input type="email" class="form-control" id="velocidad_inicial" placeholder="Ej: 10">
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">¿Conoce la velocidad final?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-final-no">
+              <label class="form-check-label" for="velocidad-final-no">
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-final-si" checked>
+              <label class="form-check-label" for="velocidad-final-si">
+                Si
+              </label>
+            </div>
+            <input type="email" class="form-control" id="velocidad_final" placeholder="Ej: 10">
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+    </form>
+  </div>
+  <div class="container w-25 justify-content-center text-center" >
+    <button  pys-onClick="" class="btn btn-primary mb-3">Calcular</button>
+    <div class="respuestas">
+      <ul class="list-group list-group-flush">
+        <li id="resp-velocidad-final" class="list-group-item">Velocidad final: </li>
+        <li id="resp-velocidad-inicial" class="list-group-item">Velocidad inicial: </li>
+        <li id="resp-tiempo" class="list-group-item">Tiempo: </li>
+        <li id="resp-distancia recorrida" class="list-group-item">Distancia recorrida: </li>
+        <li id="resp-aceleración" class="list-group-item">Aceleración: </li>
+      </ul>
+    </div>
+  </div>
     <footer class="text-center text-white" style="background-color: #3f80b5">
       <div class="container">
         <section class="mt-5">
