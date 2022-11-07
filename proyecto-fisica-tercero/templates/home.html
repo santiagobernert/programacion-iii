@@ -9,12 +9,7 @@
     <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
     <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
   </head>
-  <py-env>
-    paths:
-        ./script.py
-    </py-env>
   <body>
-    <py-script id="main" src="./script.py"></py-script>
     <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
@@ -65,85 +60,96 @@
 </div>
 <div id="calcular" class="calcular container w-75 p-5 justify-content-center">
   <h3 class="text-center mb-3">Calcular</h3>
-    <form action="">
+    <form action="/" method="post">
       <div class="row justify-content-md-center">
-        <div class="col-md-auto text-center justify-content-center">
+        <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label text-center">Número de etapas</label>
-            <input type="number" class="form-control w-75 ms-auto me-auto" id="etapas" placeholder="Ej: 3">
+            <label for="tiempo" class="form-label text-center w-100">¿Conoce el tiempo?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tiempo" id="tiempo-no">
+              <label class="form-check-label" for="tiempo-no" >
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tiempo" id="tiempo-si" checked>
+              <label class="form-check-label" for="tiempo-si">
+                Si
+              </label>
+            </div>
           </div>
         </div>
-        <div class="col-md-auto text-center justify-content-center">
+        <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label text-center">Tiempo</label>
-            <input type="number" class="form-control w-75 ms-auto me-auto" id="tiempo" placeholder="Ej: 27">
+            <label for="aceleracion" class="form-label text-center w-100">¿Conoce la aceleración?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="aceleracion" id="aceleracion-no">
+              <label class="form-check-label" for="aceleracion-no" >
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="aceleracion" id="aceleracion-si" checked>
+              <label class="form-check-label" for="aceleracion-si">
+                Si
+              </label>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">¿Conoce la aceleración?</label>
+            <label for="velocidad_inicial" class="form-label text-center w-100">¿Conoce la velocidad inicial?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="aceleracion-no">
-              <label class="form-check-label" for="aceleracion-no" >
-                No
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="aceleracion-si" checked>
-              <label class="form-check-label" for="aceleracion-si">
-                Si
-              </label>
-            </div>
-            <input type="email" class="form-control" id="aceleracion" placeholder="Ej: 10">
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">¿Conoce la velocidad inicial?</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-inicial-no">
+              <input class="form-check-input" type="radio" name="vi" id="velocidad-inicial-no">
               <label class="form-check-label" for="velocidad-inicial-no">
                 No
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-inicial-si" checked>
+              <input class="form-check-input" type="radio" name="vi" id="velocidad-inicial-si" checked>
               <label class="form-check-label" for="velocidad-inicial-si">
                 Si
               </label>
             </div>
-            <input type="email" class="form-control" id="velocidad_inicial" placeholder="Ej: 10">
           </div>
         </div>
         <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">¿Conoce la velocidad final?</label>
+            <label for="velocidad_final" class="form-label text-center w-100">¿Conoce la velocidad final?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-final-no">
+              <input class="form-check-input" type="radio" name="vf" id="velocidad-final-no">
               <label class="form-check-label" for="velocidad-final-no">
                 No
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="velocidad-final-si" checked>
+              <input class="form-check-input" type="radio" name="vf" id="velocidad-final-si" checked>
               <label class="form-check-label" for="velocidad-final-si">
                 Si
               </label>
             </div>
-            <input type="email" class="form-control" id="velocidad_final" placeholder="Ej: 10">
           </div>
         </div>
+        <button type="submit" class="btn btn-primary mb-3">Next</button>
       </div>
-      
-      
-      
-      
+    </form>
+    <form action="" method="post">
+      <div class="row justify-content-md-center">
+        {% for dato in datos_a_ingresar %}
+        <div class="col-md-auto text-center justify-content-center">
+          <div class="mb-3">
+            <label for={{dato}} class="form-label text-center">{{dato}}</label>
+            <input type="number" name={{dato}} class="form-control w-75 ms-auto me-auto" id={{dato}} >
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </form>
   </div>
   <div class="container w-25 justify-content-center text-center" >
-    <button  pys-onClick="" class="btn btn-primary mb-3">Calcular</button>
+    <button  class="btn btn-primary mb-3">Calcular</button>
     <div class="respuestas">
       <ul class="list-group list-group-flush">
         <li id="resp-velocidad-final" class="list-group-item">Velocidad final: </li>
