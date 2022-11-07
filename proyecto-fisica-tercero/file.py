@@ -1,7 +1,7 @@
 def cal_dist(v,t,a):
     val= v*t+0.5*a*(t**2)
     return val
-
+'''
 dis_total=0
 while True:
     num_etapas = int(input("Ingrese el numero de etapas: "))
@@ -102,7 +102,7 @@ for i in range(num_etapas):
 
 
 
-
+'''
 
 #MISMO CÓDIGO PERO EN FUNCIÓN
 
